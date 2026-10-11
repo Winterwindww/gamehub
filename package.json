@@ -1,0 +1,13 @@
+{
+  "name": "gamehub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "联机游戏厅：静态页面 + /.cloud 同源反向代理",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

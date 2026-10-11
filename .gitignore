@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+package-lock.json
+
+# 第三方库本地副本（压缩版，由 js/cloud.js 自动从 CDN 回退加载）
+js/vendor/
+
+# 部署平台元数据（WorkBuddy）
+.workbuddy/
+.wbapp_*
+*.genie
+
+# 运行时产物
+*.log
+logs/
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

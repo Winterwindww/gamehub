@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>欢乐扑克 · 联机游戏厅</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🃏</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=15">
+</head>
+<body>
+
+<div class="wrap poker-wrap">
+
+  <div class="topbar">
+    <span class="back" id="backBtn">← 返回大厅</span>
+    <span class="title">欢乐扑克</span>
+    <span class="spacer"></span>
+    <span id="blindInfo" style="font-size:12.5px;color:var(--muted)"></span>
+    <button class="sound-toggle" id="soundBtn" type="button"></button>
+    <button class="chat-open" id="chatOpenBtn" type="button" title="房间公聊">
+      <span class="chat-open-ico">💬</span><span class="chat-open-txt">公聊</span>
+      <span class="chat-open-badge hidden" id="chatBadge">0</span>
+    </button>
+    <span class="room-badge" id="roomBadge" title="点击复制邀请链接">
+      <span class="conn-dot" id="connDot"></span>
+      房间 <span class="code" id="roomCode">----</span>
+    </span>
+  </div>
+
+  <div class="result-banner hidden" id="resultBanner"></div>
+
+  <div class="card" style="padding:12px">
+    <div class="poker-table-wrap">
+      <div class="poker-felt"></div>
+      <div class="table-center">
+        <div class="phase-tag" id="phaseTag">等待开始</div>
+        <div class="community-cards" id="communityCards"></div>
+        <div class="pot-display" id="potDisplay">奖池 <span class="chip-ico"></span>0</div>
+      </div>
+      <div class="table-cta hidden" id="tableCta">
+        <button class="btn btn-primary btn-lg" id="startHandBtn">开始这一手</button>
+      </div>
+      <div id="seatLayer"></div>
+    </div>
+  </div>
+
+  <div class="my-hand">
+    <div class="cards" id="myCards"></div>
+    <div class="hand-strength" id="myHandName">—</div>
+  </div>
+
+  <div class="action-bar" id="actionBar"></div>
+
+  <div class="card" style="margin-top:16px;padding:14px">
+    <div class="btn-row" style="margin-bottom:12px">
+      <button class="btn" id="resetBtn">重置欢乐豆重新开始</button>
+    </div>
+    <div class="log-panel" id="logPanel"></div>
+  </div>
+
+</div>
+
+<script src="js/util.js?v=15"></script>
+<script src="js/sound.js?v=15"></script>
+<script src="js/cloud.js?v=15"></script>
+<script src="js/poker-engine.js?v=15"></script>
+<script src="js/poker.js?v=15"></script>
+<script src="js/chat.js?v=15"></script>
+</body>
+</html>

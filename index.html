@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>联机游戏厅</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=15">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="brand">
+    <div class="logo">🎲</div>
+    <div>
+      <h1>联机游戏厅</h1>
+      <p>和同学开个房间，随时来一局</p>
+    </div>
+    <button class="sound-toggle" id="soundBtn" type="button" style="margin-left:auto"></button>
+  </div>
+
+  <div class="card">
+    <h2>1 · 你的昵称</h2>
+    <p class="hint">房间里显示的名字，写一次就记住了</p>
+    <input id="nickname" type="text" maxlength="12" placeholder="比如：小明" autocomplete="off">
+  </div>
+
+  <div class="grid-2" style="margin-top:16px">
+
+    <div class="card">
+      <h2>2 · 创建房间</h2>
+      <p class="hint">选好游戏后生成 4 位房间码，发给同学</p>
+
+      <div class="game-pick" id="gamePick">
+        <div class="game-opt active" data-game="gomoku">
+          <span class="ico">⚫</span>
+          <div class="nm">五子棋</div>
+          <div class="ds">1 对 1 对战</div>
+        </div>
+        <div class="game-opt" data-game="jungle">
+          <span class="ico">🐯</span>
+          <div class="nm">斗兽棋</div>
+          <div class="ds">1 对 1 对战</div>
+        </div>
+        <div class="game-opt" data-game="poker">
+          <span class="ico">🃏</span>
+          <div class="nm">欢乐扑克</div>
+          <div class="ds">2 - 6 人</div>
+        </div>
+      </div>
+
+      <div id="pokerOpts" class="hidden">
+        <label class="field">
+          <span>每人初始欢乐豆</span>
+          <input id="startChips" type="number" value="1000" min="100" step="100" inputmode="numeric">
+        </label>
+        <label class="field">
+          <span>小注 / 大注</span>
+          <div style="display:flex;gap:10px">
+            <input id="smallBlind" type="number" value="10" min="1" step="1" inputmode="numeric">
+            <input id="bigBlind" type="number" value="20" min="2" step="1" inputmode="numeric">
+          </div>
+        </label>
+      </div>
+
+      <button class="btn btn-primary btn-block" id="createBtn">创建房间</button>
+    </div>
+
+    <div class="card">
+      <h2>3 · 加入房间</h2>
+      <p class="hint">输入同学给你的 4 位房间码</p>
+      <label class="field">
+        <input id="joinCode" class="code-input" type="text" maxlength="4" placeholder="0000"
+               inputmode="numeric" pattern="[0-9]*" autocomplete="off" spellcheck="false">
+      </label>
+      <button class="btn btn-block" id="joinBtn">加入房间</button>
+      <div class="waiting-note" style="justify-content:flex-start;padding:14px 0 0">
+        <span class="pulse-dot"></span>
+        <span>手机、电脑都能进，同一个房间码即可</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h2>玩法说明</h2>
+    <p class="hint" style="margin-bottom:8px">
+      <b style="color:var(--text)">五子棋</b> —— 两人轮流落子，先连成五子者胜；第三个人进来会自动成为观战。
+    </p>
+    <p class="hint" style="margin-bottom:8px">
+      <b style="color:var(--text)">斗兽棋</b> —— 象＞狮＞虎＞豹＞狼＞狗＞猫＞鼠，鼠能吃象；只有鼠能下水，狮虎可跳河吃子；攻入对方兽穴、吃光对方或困死对方即胜。两人对战。
+    </p>
+    <p class="hint" style="margin-bottom:0">
+      <b style="color:var(--text)">欢乐扑克</b> —— 创建时可自定初始欢乐豆和大小注，2 到 6 人同桌，支持加注、全押与多人边池结算。
+    </p>
+  </div>
+
+</div>
+
+<script src="js/util.js?v=15"></script>
+<script src="js/sound.js?v=15"></script>
+<script src="js/cloud.js?v=15"></script>
+<script src="js/jungle-engine.js?v=15"></script>
+<script src="js/lobby.js?v=15"></script>
+</body>
+</html>
