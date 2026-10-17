@@ -9,7 +9,6 @@
 | ⚫ 五子棋 | 2 人（多余进房自动变观战） | 轮流落子，先连成五子者胜 |
 | 🐯 斗兽棋 | 2 人 | 象＞狮＞虎＞豹＞狼＞狗＞猫＞鼠，鼠能吃象；只有鼠能下水，狮虎可跳河吃子；攻入兽穴、吃光对方或困死对方即胜 |
 | 🃏 欢乐扑克 | 2 - 6 人 | 创建时自定初始欢乐豆与大小注，支持加注、全押与多人边池结算 |
-| 👟 拖鞋幸存者 | 单机 | 像素肉鸽割草：17 武器 / 8 融合 / 29 被动道具 / 6 Boss，见 [slipper-survivor.md](./slipper-survivor.md) |
 
 ## 玩法
 
@@ -35,8 +34,6 @@ index.html            大厅：昵称 / 创建房间 / 加入房间
 gomoku.html           五子棋
 jungle.html           斗兽棋
 poker.html            欢乐扑克
-slipper-survivor.html 单机肉鸽割草「拖鞋幸存者」
-slipper-survivor.md   拖鞋幸存者内容清单与实现说明
 css/style.css         全站样式
 js/
   util.js             通用工具（DOM、格式化、默认配置）
@@ -51,7 +48,6 @@ js/
   chat.js             房间内聊天 / 表情
   vendor/             同源数据 SDK（本地副本，未纳入版本库，见下）
 server.js             单端口 HTTP 服务：静态文件 + 反向代理
-.github/workflows/    sync-game.yml：自动从线上同步拖鞋幸存者最新版
 ```
 
 > `js/vendor/` 下是数据通道 SDK 的本地副本（一个压缩过的第三方库），未纳入版本库。`js/cloud.js` 会按 `SDK_URLS` 顺序依次尝试：本地副本 → unpkg → jsDelivr，本地缺失时自动走 CDN。
@@ -72,13 +68,3 @@ server.js             单端口 HTTP 服务：静态文件 + 反向代理
 ## 规则引擎
 
 `jungle-engine.js` 与 `poker-engine.js` 是纯逻辑模块，不依赖 DOM，可以单独引入做单元测试或复用。
-
-## 单机小游戏：拖鞋幸存者
-
-`slipper-survivor.html` 是一款**单文件**的 2D 像素肉鸽割草游戏（参考《吸血鬼幸存者》），
-和上面几个联机游戏没有关系，纯前端、打开即玩、不需要服务端：
-
-- 直接用浏览器打开 `slipper-survivor.html`
-- 17 把武器 / 8 组融合 / 29 种被动道具 / 13 种小怪 / 6 个 Boss
-- 技术说明与内容清单见 [slipper-survivor.md](./slipper-survivor.md)
-- `.github/workflows/sync-game.yml` 会在每次 push 时自动从线上地址拉取最新版本并提交，保证仓库里的游戏始终是最新版
