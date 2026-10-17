@@ -3,7 +3,7 @@ name: sync-game
 on:
   push:
     paths-ignore:
-      - 'index.html'
+      - 'slipper-survivor.html'
   workflow_dispatch:
 
 permissions:
@@ -16,16 +16,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Download latest game
-        run: curl -fsSL "https://slipper-survivor.app.workbuddy.host/" -o index.html
+        run: curl -fsSL "https://slipper-survivor.app.workbuddy.host/" -o slipper-survivor.html
 
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- index.html; then
+          if git diff --quiet -- slipper-survivor.html; then
             echo "game unchanged"
           else
-            git add index.html
+            git add slipper-survivor.html
             git commit -m "chore: sync slipper-survivor from live site"
             git push
           fi
